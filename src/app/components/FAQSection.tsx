@@ -43,7 +43,7 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section className="app-section app-gutter app-section-padding">
+    <section id="faq" className="app-section app-gutter app-section-padding">
       <div className="app-container-xs">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

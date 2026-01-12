@@ -54,7 +54,7 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="app-section app-gutter app-section-padding">
+    <section id="testimonials" className="app-section app-gutter app-section-padding">
       <div className="app-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -76,7 +76,7 @@ export function ServicesSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="app-section app-gutter app-section-padding">
+    <section id="services" className="app-section app-gutter app-section-padding">
       <div className="app-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

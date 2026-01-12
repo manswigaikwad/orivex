@@ -187,12 +187,8 @@
 }
 
 @layer utilities {
-  .app-slide {
-    @apply w-screen h-screen flex-shrink-0;
-  }
-
   .app-section {
-    @apply w-full h-full flex items-start justify-center overflow-y-auto overscroll-contain;
+    @apply w-full flex items-start justify-center;
   }
 
   .app-gutter {
@@ -200,7 +196,11 @@
   }
 
   .app-section-padding {
-    @apply pt-40 pb-12 sm:pt-44 sm:pb-16;
+    @apply py-12 sm:py-16;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
   }
 
   .app-container {

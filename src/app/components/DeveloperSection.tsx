@@ -11,7 +11,7 @@ const skills = [
 
 export function DeveloperSection() {
   return (
-    <section className="app-section app-gutter app-section-padding">
+    <section id="developer" className="app-section app-gutter app-section-padding">
       <div className="app-container-md">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

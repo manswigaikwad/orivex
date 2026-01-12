@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 export function HeroSection() {
   return (
-    <section className="app-section app-gutter app-section-padding relative">
+    <section id="hero" className="app-section app-gutter app-section-padding relative">
       {/* Animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
@@ -85,7 +85,8 @@ export function HeroSection() {
             size="lg"
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg group"
             onClick={() => {
-              window.dispatchEvent(new CustomEvent("app:navigate", { detail: { section: "form" } }));
+              const formSection = document.getElementById('inquiry-form');
+              formSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Start Your Project
@@ -95,7 +96,8 @@ export function HeroSection() {
             size="lg"
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-lg"
             onClick={() => {
-              window.dispatchEvent(new CustomEvent("app:navigate", { detail: { section: "portfolio" } }));
+              const portfolioSection = document.getElementById('portfolio');
+              portfolioSection?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
             View Portfolio

@@ -4,7 +4,7 @@ import { ArrowRight, Phone, Mail, MessageCircle } from "lucide-react";
 
 export function ConversionSection() {
   return (
-    <section className="app-section app-gutter app-section-padding">
+    <section id="conversion" className="app-section app-gutter app-section-padding">
       <div className="app-container-sm">
         <div className="relative p-6 sm:p-12 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-lg overflow-hidden">
           {/* Animated background */}

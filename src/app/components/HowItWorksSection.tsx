@@ -30,7 +30,7 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="app-section app-gutter app-section-padding">
+    <section id="how-it-works" className="app-section app-gutter app-section-padding">
       <div className="app-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

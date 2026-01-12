@@ -169,7 +169,8 @@ export function PortfolioSection() {
                     size="sm"
                     className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white flex-1"
                     onClick={() => {
-                      window.dispatchEvent(new CustomEvent("app:navigate", { detail: { section: "form" } }));
+                      const formSection = document.getElementById('inquiry-form');
+                      formSection?.scrollIntoView({ behavior: 'smooth' });
                     }}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
