@@ -200,7 +200,7 @@
   }
 
   .app-section-padding {
-    @apply py-12 sm:py-16;
+    @apply pt-28 pb-12 sm:pt-32 sm:pb-16;
   }
 
   .app-container {

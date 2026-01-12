@@ -9,25 +9,17 @@ import { FAQSection } from "./components/FAQSection";
 import { CompletePackageSection } from "./components/CompletePackageSection";
 import { InquiryFormSection } from "./components/InquiryFormSection";
 import { ConversionSection } from "./components/ConversionSection";
-import { AdminPanel } from "./components/AdminPanel";
-import { AdminLogin } from "./components/AdminLogin";
-import { LoadingScreen } from "./components/LoadingScreen";
 import { Toaster } from "./components/ui/sonner";
 import { Button } from "./components/ui/button";
-import { ChevronLeft, ChevronRight, Shield } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-type ViewMode = "website" | "admin-login" | "admin-panel";
-
 export default function App() {
-  const [viewMode, setViewMode] = useState<ViewMode>("website");
-  const [adminKey, setAdminKey] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   const sections = [
     "hero",
@@ -43,8 +35,6 @@ export default function App() {
   ];
 
   useEffect(() => {
-    if (viewMode !== "website") return;
-
     const handler = (e: Event) => {
       const customEvent = e as CustomEvent<{ section?: string }>; 
       const section = customEvent.detail?.section;
@@ -56,12 +46,10 @@ export default function App() {
 
     window.addEventListener("app:navigate", handler);
     return () => window.removeEventListener("app:navigate", handler);
-  }, [viewMode, sections]);
+  }, [sections]);
 
   // Wheel/trackpad scrolling
   useEffect(() => {
-    if (viewMode !== "website") return;
-
     const handleWheel = (e: WheelEvent) => {
       if (isScrolling) return;
 
@@ -86,12 +74,10 @@ export default function App() {
         container.removeEventListener("wheel", handleWheel);
       }
     };
-  }, [currentSection, isScrolling, viewMode]);
+  }, [currentSection, isScrolling]);
 
   // Touch/swipe support for mobile
   useEffect(() => {
-    if (viewMode !== "website") return;
-
     const handleTouchStart = (e: TouchEvent) => {
       setTouchStart(e.touches[0].clientX);
     };
@@ -133,12 +119,10 @@ export default function App() {
         container.removeEventListener("touchend", handleTouchEnd);
       }
     };
-  }, [currentSection, touchStart, touchEnd, viewMode]);
+  }, [currentSection, touchStart, touchEnd]);
 
   // Keyboard navigation
   useEffect(() => {
-    if (viewMode !== "website") return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isScrolling) return;
 
@@ -156,7 +140,7 @@ export default function App() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentSection, isScrolling, viewMode]);
+  }, [currentSection, isScrolling]);
 
   const scrollToSection = (index: number) => {
     if (index < 0 || index >= sections.length) return;
@@ -176,37 +160,6 @@ export default function App() {
       setIsScrolling(false);
     }, 1000);
   };
-
-  const handleAdminLogin = (key: string) => {
-    setAdminKey(key);
-    setViewMode("admin-panel");
-  };
-
-  const handleAdminLogout = () => {
-    setAdminKey("");
-    setViewMode("website");
-  };
-
-  if (viewMode === "admin-login") {
-    return (
-      <>
-        <AdminLogin
-          onLogin={handleAdminLogin}
-          onBack={() => setViewMode("website")}
-        />
-        <Toaster />
-      </>
-    );
-  }
-
-  if (viewMode === "admin-panel") {
-    return (
-      <>
-        <AdminPanel onLogout={handleAdminLogout} adminKey={adminKey} />
-        <Toaster />
-      </>
-    );
-  }
 
   return (
     <>
@@ -326,21 +279,6 @@ export default function App() {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* Admin button */}
-        <motion.button
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 1.5 }}
-          onClick={() => setViewMode("admin-login")}
-          className="fixed top-4 sm:top-8 right-4 sm:right-8 z-50 p-3 rounded-full border border-white/10 bg-black/30 backdrop-blur-lg hover:bg-white/10 text-white transition-all duration-300 hover:scale-110 group"
-          title="Admin Login"
-        >
-          <Shield className="w-5 h-5" />
-          <span className="absolute right-full mr-2 top-1/2 transform -translate-y-1/2 px-3 py-1 rounded-lg bg-black/80 text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Admin Panel
-          </span>
-        </motion.button>
 
         {/* Mobile scroll hint */}
         <div className="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-30 md:hidden">
