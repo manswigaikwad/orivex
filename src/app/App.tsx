@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesSection } from "./components/ServicesSection";
 import { HowItWorksSection } from "./components/HowItWorksSection";
@@ -11,9 +11,12 @@ import { InquiryFormSection } from "./components/InquiryFormSection";
 import { ConversionSection } from "./components/ConversionSection";
 import { Toaster } from "./components/ui/sonner";
 import { Button } from "./components/ui/button";
+import { Menu, X } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function App() {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
   useEffect(() => {
     const handleAnchorClick = (e: Event) => {
       const target = e.target as HTMLElement | null;
@@ -66,7 +69,47 @@ export default function App() {
                   </Button>
                 ))}
               </div>
+
+              <div className="md:hidden">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="icon"
+                  className="text-white/80 hover:text-white hover:bg-white/10"
+                  onClick={() => setIsMobileNavOpen((v) => !v)}
+                  aria-label="Toggle navigation"
+                >
+                  {isMobileNavOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </Button>
+              </div>
             </div>
+
+            {isMobileNavOpen && (
+              <div className="md:hidden pb-4">
+                <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-lg p-2">
+                  {[
+                    { label: "Home", section: "hero" },
+                    { label: "Services", section: "services" },
+                    { label: "How It Works", section: "how-it-works" },
+                    { label: "Developer", section: "developer" },
+                    { label: "Portfolio", section: "portfolio" },
+                    { label: "Contact", section: "inquiry-form" },
+                  ].map((item) => (
+                    <Button
+                      key={item.section}
+                      variant="ghost"
+                      className="w-full justify-start text-white/80 hover:text-white hover:bg-white/10"
+                      asChild
+                      onClick={() => setIsMobileNavOpen(false)}
+                    >
+                      <a href={`#${item.section}`} data-scroll-to={item.section}>
+                        {item.label}
+                      </a>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

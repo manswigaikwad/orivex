@@ -63,7 +63,7 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
             Student <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Testimonials</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -84,7 +84,7 @@ export function TestimonialsSection() {
             >
               <div className="relative h-full p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-lg overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300">
                 {/* Quote icon */}
-                <Quote className="absolute top-4 right-4 w-12 h-12 text-blue-500/10 group-hover:text-blue-500/20 transition-colors" />
+                <Quote className="absolute top-4 right-4 w-12 h-12 text-blue-500/10 group-hover:text-blue-500/20 transition-colors pointer-events-none" />
                 
                 {/* Rating */}
                 <div className="flex gap-1 mb-4">

@@ -39,7 +39,7 @@ export function DeveloperSection() {
           >
             <div className="relative p-8 rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-lg overflow-hidden group">
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               
               {/* Profile image placeholder */}
               <div className="relative mb-6">
@@ -50,7 +50,7 @@ export function DeveloperSection() {
                 </div>
                 {/* Pulse effect */}
                 <motion.div
-                  className="absolute inset-0 rounded-full bg-blue-500/20"
+                  className="absolute inset-0 rounded-full bg-blue-500/20 pointer-events-none"
                   animate={{
                     scale: [1, 1.2, 1],
                     opacity: [0.5, 0, 0.5],
@@ -80,7 +80,7 @@ export function DeveloperSection() {
               </div>
 
               {/* Quick contact buttons */}
-              <div className="flex flex-wrap gap-3 justify-center">
+              <div className="relative z-10 flex flex-wrap gap-3 justify-center">
                 <Button
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
                   onClick={() => window.location.href = 'tel:7385726096'}

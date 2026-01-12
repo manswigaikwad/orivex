@@ -87,7 +87,7 @@ export function PortfolioSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
             Featured <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Portfolio</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
@@ -108,7 +108,7 @@ export function PortfolioSection() {
             >
               <div className="relative h-full p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-lg overflow-hidden hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300">
                 {/* Gradient overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`} />
                 
                 {/* Category badge */}
                 <div className="relative mb-4">
@@ -119,7 +119,7 @@ export function PortfolioSection() {
 
                 {/* Project image/banner */}
                 <div className="relative mb-5 overflow-hidden rounded-xl border border-white/10 bg-white/5">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-25`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-25 pointer-events-none`} />
                   <div className="relative h-32">
                     <ImageWithFallback
                       src={project.imageUrl}
@@ -127,13 +127,13 @@ export function PortfolioSection() {
                       className="h-full w-full object-cover"
                     />
                     <div
-                      className="absolute inset-0 opacity-35"
+                      className="absolute inset-0 opacity-35 pointer-events-none"
                       style={{
                         backgroundImage:
                           "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.18) 0, rgba(255,255,255,0) 50%), radial-gradient(circle at 80% 60%, rgba(255,255,255,0.14) 0, rgba(255,255,255,0) 55%)",
                       }}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <div className="rounded-full bg-black/35 px-4 py-2 backdrop-blur-md">
                         <project.icon className="w-7 h-7 text-white/95" />
                       </div>
@@ -164,7 +164,7 @@ export function PortfolioSection() {
                 </div>
 
                 {/* Action buttons */}
-                <div className="relative flex gap-2">
+                <div className="relative z-10 flex gap-2">
                   <Button
                     size="sm"
                     className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white flex-1"
@@ -186,7 +186,7 @@ export function PortfolioSection() {
                 </div>
 
                 {/* Decorative corner */}
-                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${project.color} opacity-10 blur-2xl`} />
+                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${project.color} opacity-10 blur-2xl pointer-events-none`} />
               </div>
             </motion.div>
           ))}
