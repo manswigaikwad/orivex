@@ -90,7 +90,7 @@ export function DeveloperSection() {
                 </Button>
                 <Button
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
-                  onClick={() => window.location.href = 'mailto:manswiproject11@gmail.com'}
+                  onClick={() => window.location.href = 'mailto:orivexproject@gmail.com'}
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Email

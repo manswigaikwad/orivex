@@ -89,10 +89,10 @@ export function ConversionSection() {
               <div className="flex items-center gap-2 text-gray-300">
                 <Mail className="w-5 h-5 text-purple-400" />
                 <a
-                  href="mailto:manswiproject11@gmail.com"
+                  href="mailto:orivexproject@gmail.com"
                   className="hover:text-purple-300 transition-colors"
                 >
-                  manswiproject11@gmail.com
+                  orivexproject@gmail.com
                 </a>
               </div>
             </motion.div>
