@@ -82,25 +82,31 @@ export function DeveloperSection() {
               {/* Quick contact buttons */}
               <div className="relative z-10 flex flex-wrap gap-3 justify-center">
                 <Button
+                  asChild
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                  onClick={() => window.location.href = 'tel:7385726096'}
                 >
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call
+                  <a href="tel:+917385726096">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call
+                  </a>
                 </Button>
                 <Button
+                  asChild
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
-                  onClick={() => window.location.href = 'mailto:orivexproject@gmail.com'}
                 >
-                  <Mail className="w-4 h-4 mr-2" />
-                  Email
+                  <a href="mailto:orivexproject@gmail.com">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Email
+                  </a>
                 </Button>
                 <Button
+                  asChild
                   className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white"
-                  onClick={() => window.open('https://wa.me/917385726096', '_blank')}
                 >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  WhatsApp
+                  <a href="https://wa.me/917385726096" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="w-4 h-4 mr-2" />
+                    WhatsApp
+                  </a>
                 </Button>
               </div>
             </div>
